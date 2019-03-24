@@ -4,7 +4,7 @@ const generatePassword = require('password-generator')
 
 const app = express()
 
-app.use(express.static(path.join(__dirname, 'client/build')))
+app.use(express.static(path.join(__dirname, '/../client/build')))
 
 app.get('/api/passwords', (req, res) => {
   const count = 5;
@@ -22,7 +22,7 @@ app.get('/api/passwords', (req, res) => {
 
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname + '../client/build/index.html'))
+  res.sendFile(path.join(__dirname + '/../client/build/index.html'))
 })
 
 const port = process.env.PORT || 3001;
