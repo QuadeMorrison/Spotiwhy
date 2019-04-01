@@ -31,10 +31,13 @@ class App extends Component {
 
   componentDidMount() {
     const params = this.getHashParams();
+    console.log(params.access_token)
 
     let promise = null;
 
+    console.log("before local store")
     if (localStorage.hasOwnProperty("cleanTracks")) {
+      console.log("in local store")
       store.auth = true
       promise = new Promise((resolve) => {
         const tracks = JSON.parse(localStorage.getItem("cleanTracks"))
@@ -42,6 +45,7 @@ class App extends Component {
       })
     } else {
       if (params.access_token) {
+        console.log("in load data")
         window.history.replaceState({}, "", "#")
         store.auth = true
         spotifyApi.setAccessToken(params.access_token)
@@ -54,6 +58,7 @@ class App extends Component {
 
     if (store.auth)
       promise.then(data => {
+        console.log("data", data)
         store.data = data
         store.loaded = true
       })
