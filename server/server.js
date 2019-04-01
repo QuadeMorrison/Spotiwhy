@@ -9,7 +9,7 @@ const app = express()
 
 var client_id = process.env.CLIENT_ID
 var client_secret = process.env.CLIENT_SECRET
-var redirect_uri = `http://localhost:${process.env.PORT}/callback`
+var redirect_uri = process.env.REDIRECT_URI
 const client_uri = `http://localhost:${process.env.NODE_ENV == "production" ? process.env.PORT : process.env.CLIENT_PORT}#`
 
 // Serve static files from the React app
