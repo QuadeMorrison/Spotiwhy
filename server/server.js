@@ -10,7 +10,7 @@ const app = express()
 var client_id = process.env.CLIENT_ID
 var client_secret = process.env.CLIENT_SECRET
 var redirect_uri = process.env.HOST + "callback"
-const client_uri = process.env.HOST
+const client_uri = process.env.HOST + "#"
 
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, '/../client/build')))
@@ -139,3 +139,4 @@ const port = process.env.PORT
 app.listen(port)
 
 console.log(`Server listening on ${port}`)
+console.log(redirect_uri)
