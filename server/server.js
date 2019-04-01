@@ -13,7 +13,7 @@ var redirect_uri = `http://localhost:${process.env.PORT}/callback`
 const client_uri = `http://localhost:${process.env.NODE_ENV == "production" ? process.env.PORT : process.env.CLIENT_PORT}#`
 
 // Serve static files from the React app
-app.use(express.static(path.join(__dirname, 'client/build')))
+app.use(express.static(path.join(__dirname, '/../client/build')))
 	.use(cors())
 	.use(cookieParser())
 
@@ -129,7 +129,7 @@ app.get('/refresh_token', function(req, res) {
 
 app.get('*', (req, res) => {
   if (process.env.NODE_ENV == "production")
-    res.sendFile(path.join(__dirname+'/client/build/index.html'));
+    res.sendFile(path.join(__dirname+'/../client/build/index.html'));
   else
     res.redirect(client_uri)
 });

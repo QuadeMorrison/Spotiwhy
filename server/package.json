@@ -4,7 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon -r dotenv/config server.js dotenv_config_path=./.env.dev"
+    "dev": "nodemon -r dotenv/config server.js dotenv_config_path=./.env.dev",
+    "prod": "nodemon -r dotenv/config server.js dotenv_config_path=./.env"
   },
   "keywords": [],
   "author": "",
