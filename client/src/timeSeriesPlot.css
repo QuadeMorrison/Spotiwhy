@@ -1,0 +1,28 @@
+.flex {
+  display: flex;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  height: 300px;
+}
+
+#plot {
+  position: relative;
+  min-width: 100% !important;
+  color: white;
+  margin: 20px;
+  left: -3%;
+}
+
+#legend {
+  /* display: flex; */
+  /* flex-grow: 4; */
+  position: absolute;
+  margin: 0;
+  right: 0;
+  color: white;
+  padding: 5px;
+  min-width: 250px !important;
+}

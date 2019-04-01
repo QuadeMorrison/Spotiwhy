@@ -3,9 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "bootstrap": "^4.3.1",
+    "chart.js": "^2.8.0",
+    "chartjs": "^0.3.24",
+    "dygraphs": "^2.1.0",
     "react": "^16.8.5",
+    "react-bootstrap": "^1.0.0-beta.6",
+    "react-chartjs-2": "^2.7.6",
     "react-dom": "^16.8.5",
-    "react-scripts": "2.1.8"
+    "react-easy-state": "^6.1.1",
+    "react-router-dom": "^5.0.0",
+    "react-scripts": "2.1.8",
+    "spotify-web-api-js": "^1.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -22,5 +31,7 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "proxy": "http://localhost:3001"
+  "devDependencies": {
+    "http-proxy-middleware": "^0.19.1"
+  }
 }

@@ -1,0 +1,8 @@
+.tsButtons {
+  margin: 10px;
+}
+
+.disabled {
+  filter: brightness(75%);
+  outline: none !important;
+}

@@ -1,31 +1,116 @@
-.App {
-  text-align: center;
-  font-family: "Courier New", monospace;
+html, body, .App {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  /* display: flex; */
+  /* background: #0E0108; */
+  background: #272727;
+  color: white;
+}
+
+.appContainer {
+  display: flex;
+  flex-direction: column;
+  /* height: 100%; */
+  /* width: 100%; */
+  /* justify-content: center; */
+  /* align-items: center; */
+}
+
+.flexible {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.flex {
+  display: flex;
+}
+
+.scatterContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.scatterPlot {
+  display: flex;
+  flex-grow: 1;
+  /* min-width: 500px; */
+  min-width: 49%;
+  max-width: 49%;
+}
+
+#newScatter {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  min-width: 300px;
+  min-height: 300px;
+  width: 49%;
+  margin: 10px;
+  border: #444 1px solid;
+  justify-content: center;
+  align-items: center;
+  color: #444;
+}
+
+#newScatter:hover {
+  color: #fff;
+  border-color: #fff;
+}
+
+#addSign {
+  position: relative;
+  display: flex;
+  font-size: 150px;
+  line-height: 80px;
+  justify-content: center;
+  align-items: center;
+  top: -20px;
+}
+
+#newPlot {
+  font-size: 50px;
+  font-weight: bold;
+  line-height: 80px;
+}
+
+.modal-body, .modal-footer, .modal-content {
+  background: #272727;
+  border: #333 1px solid;
+}
+
+.genrePlot {
+  min-width: 49%;
+}
+
+.barPlot {
+  min-width: 49%;
+}
+
+.radioControl {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.controlTitle {
+  margin: 10px;
+}
+
+.spinner {
+  margin: 100px;
+}
+
+.logoContainer {
+  display: flex;
+  justify-content: center;
+  align-items:center;
   width: 100%;
 }
 
-h1 {
-  font-weight: normal;
-  font-size: 42px;
-}
-
-.passwords {
-  list-style: none;
-  padding: 0;
-  font-size: 32px;
-  margin-bottom: 2em;
-}
-
-.more {
-  font-size: 32px;
-  font-family: "Courier New", monospace;
-  border: 2px solid #000;
-  background-color: #fff;
-  padding: 10px 25px;
-}
-.more:hover {
-  background-color: #FDD836;
-}
-.more:active {
-  background-color: #FFEFA9;
+.logo {
+  margin-left: 10px;
 }
