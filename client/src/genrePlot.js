@@ -15,10 +15,11 @@ class GenrePlot extends GenreBase {
 
   sortFunc = (a, b) => {
     const index = this.state.byFirst ? 0 : 1
-    var aWordList = a.label.split(' ')
-    var bWordList = b.label.split(' ')
-    var aWord = aWordList.length <= 1 ? aWordList.label : aWordList[index]
-    var bWord = bWordList.length <= 1 ? bWordList.label : bWordList[index]
+    const re = /\s|-|\sand\s/g
+    var aWordList = a.label.split(re)
+    var bWordList = b.label.split(re)
+    var aWord = aWordList.length <= 1 ? aWordList[0] : aWordList[index]
+    var bWord = bWordList.length <= 1 ? bWordList[0] : bWordList[index]
     if(aWord === bWord) return 0;
     return aWord > bWord ? 1 : -1;
   }

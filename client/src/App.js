@@ -45,7 +45,7 @@ class App extends Component {
         window.history.replaceState({}, "", "#")
         store.auth = true
         spotifyApi.setAccessToken(params.access_token)
-        promise = getDataset().then(data => {
+        promise = getDataset(500).then(data => {
           this.cache("cleanTracks", data)
           return data
         })

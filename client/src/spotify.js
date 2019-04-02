@@ -42,8 +42,12 @@ function range(start, stop, step) {
 };
 
 export const getTracks = limit => {
-  let offsets = range(0, limit, 50)
-    .map(off => spotifyApi.getMySavedTracks({off, limit: 50}))
+  const step = 50
+  let offsets = range(0, limit, step)
+    .map(off => [off, off + step > limit ? limit - off : step])
+
+  offsets = offsets.map(off => spotifyApi.getMySavedTracks({offset: off[0], limit: off[1]}))
+
 
   return Promise.all(offsets).then(data => {
     return data.map(d => d.items).flat()
@@ -54,7 +58,7 @@ export const chunkTracks = (tracks, variable, chunkSize = 100) => {
   const ids = tracks.map(t => Object.byString(t, `track.${variable}`))
   let chunks = []
 
-  for (let i = 0; i <= ids.length; i += chunkSize)
+  for (let i = 0; i < ids.length; i += chunkSize)
     chunks.push([ids.slice(i, i + chunkSize)])
 
   return chunks
@@ -92,8 +96,8 @@ export const getTrackDetails = (tracks) => {
   })
 }
 
-export const getDataset = () => {
-  return getTracks(150).then(tracks => {
+export const getDataset = maxTracks => {
+  return getTracks(maxTracks).then(tracks => {
     let details = getTrackDetails(tracks)
     let auF = getAudioFeatures(tracks)
     let alG = getAlbumGenres(tracks)

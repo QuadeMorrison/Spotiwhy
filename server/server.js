@@ -10,7 +10,9 @@ const app = express()
 var client_id = process.env.CLIENT_ID
 var client_secret = process.env.CLIENT_SECRET
 var redirect_uri = process.env.HOST + "callback"
-const client_uri = process.env.HOST + "#"
+const client_uri = process.env.NODE_ENV == "production" ?
+  `${process.env.HOST}#` :
+  `http://localhost:${process.env.CLIENT_PORT}#`
 
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, '/../client/build')))
@@ -138,5 +140,4 @@ app.get('*', (req, res) => {
 const port = process.env.PORT
 app.listen(port)
 
-console.log(`Server listening on ${port}`)
-console.log(redirect_uri)
+console.log(`${process.env.NODE_ENV} server listening on ${port}`)
